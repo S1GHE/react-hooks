@@ -21,32 +21,32 @@ const mockTransactions = [
   },
 ];
 
-// const TransactionRow: React.FC<{ transaction: (typeof mockTransactions)[0] }> =
-//   React.memo(({ transaction }) => {
-//     console.log(`Рендринг транзакции: ${transaction.id}`);
-//     return (
-//       <tr>
-//         <td>{transaction.id}</td>
-//         <td>${transaction.amount.toFixed(2)}</td>
-//         <td>{new Date(transaction.date).toLocaleDateString()}</td>
-//         <td>{transaction.status}</td>
-//       </tr>
-//     );
-//   });
+const TransactionRow: React.FC<{ transaction: (typeof mockTransactions)[0] }> =
+  React.memo(({ transaction }) => {
+    console.log(`Рендринг транзакции: ${transaction.id}`);
+    return (
+      <tr>
+        <td>{transaction.id}</td>
+        <td>${transaction.amount.toFixed(2)}</td>
+        <td>{new Date(transaction.date).toLocaleDateString()}</td>
+        <td>{transaction.status}</td>
+      </tr>
+    );
+  });
 
-const TransactionRow: React.FC<{
-  transaction: (typeof mockTransactions)[0];
-}> = ({ transaction }) => {
-  console.log(`Рендринг транзакции без memo: ${transaction.id}`);
-  return (
-    <tr>
-      <td>{transaction.id}</td>
-      <td>${transaction.amount.toFixed(2)}</td>
-      <td>{new Date(transaction.date).toLocaleDateString()}</td>
-      <td>{transaction.status}</td>
-    </tr>
-  );
-};
+// const TransactionRow: React.FC<{
+//   transaction: (typeof mockTransactions)[0];
+// }> = ({ transaction }) => {
+//   console.log(`Рендринг транзакции без memo: ${transaction.id}`);
+//   return (
+//     <tr>
+//       <td>{transaction.id}</td>
+//       <td>${transaction.amount.toFixed(2)}</td>
+//       <td>{new Date(transaction.date).toLocaleDateString()}</td>
+//       <td>{transaction.status}</td>
+//     </tr>
+//   );
+// };
 
 export const TransactionTable: React.FC = () => {
   const [counter, setCounter] = useState(0);

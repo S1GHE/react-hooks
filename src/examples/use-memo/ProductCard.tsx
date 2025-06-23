@@ -32,6 +32,7 @@ type ProductCardProps = {
   product: Product;
   onAddToCart: (productId: number) => void;
 };
+// Object.is
 
 // const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
 //   console.log(`!Ререндер без memo: ${product.id}`);
@@ -65,6 +66,10 @@ export const ProductList: React.FC = () => {
   const handleAddToCart = useCallback((productId: number): void => {
     console.log(`Добавлен продукт ${productId}`);
   }, []);
+
+  // const handleAddToCart = (productId: number): void => {
+  //   console.log(`Добавлен продукт ${productId}`);
+  // };
 
   useEffect(() => {
     const interval = setInterval(() => {
